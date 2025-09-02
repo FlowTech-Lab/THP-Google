@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        <title>Google</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <header>
+            <nav aria-label="Liens principaux">
+                <a href="#">Gmail</a>
+                <a href="#">Images</a>
+                <a href="#">Application Google</a>
+                <a href="#">Profil</a>
+            </nav>
+        </header>
+        <main id="main">
+            <div class="hero">
+                <img src="logo.svg" alt="Logo Google" width="272" height="92">
+            </div>
+            <div class="search-bar">
+                <img src="loupe.png" alt="Loupe" class="loupe-ico"/>
+                <form role="search" aria-label="Recherche Google" action="https://www.google.com/search" method="GET">
+                    <label for="q" class="sr-only">Rechercher</label>
+                    <input type="text" id="q" name="q" aria-label="Rechercher sur Google ou saisir une URL">
+                </div>
+                <div>
+                    <button type="submit" class="buttons">Recherche Google</button>
+                    <button type="submit" class="buttons">J'ai de la chance</button>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <section class="country">
+                <p>France</p>
+            </section>
+            <nav class="pdp gauche">
+                <a href="https://policies.google.com/privacy?hl=fr&fg=1">Publicité</a>
+                <a href="https://policies.google.com/terms?hl=fr&fg=1">Entreprise</a>
+                <a href="#">Comment fonctionne la recherche Google ?</a>
+            </nav>
+            <nav class="pdp center">
+                <a href="https://sustainability.google/intl/fr_fr/?utm_source=googlehpfooter&utm_medium=housepromos&utm_campaign=bottom-footer&utm_content=">Notre troisième décennie d'action pour le climat</a>
+            </nav>
+            <nav class="pdp droite">
+                <a href="https://policies.google.com/privacy?hl=fr&fg=1">Signaler un contenu inapproprié</a>
+                <a href="https://policies.google.com/terms?hl=fr&fg=1">Info consommateurs</a>
+                <a href="#">Confidentialité</a>
+                <a href="#">Conditions</a>
+                <a href="#">Paramètres</a>
+            </nav>
+        </footer>
+    </body>
+</html>

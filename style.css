@@ -1,0 +1,143 @@
+/* === Fondations === */
+
+/* A) Sélecteur universel : toutes les boîtes comptent les bordures dans la largeur/hauteur */
+* { box-sizing: border-box; }
+
+/* B) L’élément racine + body occupent toute la hauteur du viewport */
+html, body { height: 100%; }
+
+/* C) Le corps de page : reset + base typo + layout vertical (header / main / footer) */
+body {
+  margin: 0;                                    /* supprime le margin par défaut du body */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;                              /* hauteur de ligne */
+  background: #202124;                         
+  color: #bfbfbf;                                /* texte gris foncé (Google) */
+  display: flex;                                 /* empiler les sections verticalement */
+  flex-direction: column;                        /* header, main, footer en colonne */
+}
+
+/* D) Le <main> s’étire pour pousser le footer en bas si besoin */
+main { flex: 1; }
+
+/* Utilitaire accessibilité : cache visuellement un label tout en restant lu par SR */
+.sr-only {
+  position: absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border:0;
+}
+
+header nav {
+  display: flex;                 /* transforme le nav en conteneur flex */
+  justify-content: flex-end;     /* pousse les liens à droite */
+  align-items: center;           /* aligne verticalement si plusieurs lignes */
+  gap: 16px;                     /* espace propre entre les liens */
+  padding: 12px 16px;            /* respiration autour */
+}
+header nav a {
+  color: inherit;                /* hérite de la couleur du body */
+  text-decoration: none;         /* retire le soulignement */
+  padding: 8px 10px;             /* augmente la zone cliquable */
+  border-radius: 9999px;         /* coins très arrondis (pill) */
+}
+header nav a:hover, .pdp a:hover {
+  background: rgba(145, 63, 192, 0.473); /* léger hover gris (Google-like) */
+}
+header nav a:focus-visible {
+  outline: 2px solid currentColor;   /* contour net au clavier = a11y */
+  outline-offset: 2px;
+}
+
+header nav {
+  display: flex;             /* active le moteur Flexbox pour aligner ses enfants (les <a>) */
+  justify-content: flex-end; /* pousse les liens à DROITE du nav */
+  align-items: center;       /* aligne verticalement si la ligne “bouge” */
+  gap: 16px;                 /* espace propre et constant entre les liens */
+  padding: 12px 16px;        /* respiration autour du bloc */
+}
+
+header nav a {
+  color: inherit;            /* hérite de la couleur du texte du body (cohérent avec le thème) */
+  text-decoration: none;     /* retire le soulignement par défaut */
+  padding: 8px 10px;         /* agrandit la zone cliquable (confort + a11y) */
+  border-radius: 9999px;     /* forme “pilule” pour de jolis survols/focus */
+}
+
+header nav a:focus-visible {
+  outline: 2px solid currentColor;   /* contour net qui n’affecte pas la mise en page */
+  outline-offset: 2px;               /* petit espace entre le lien et le contour */
+}
+
+/* === Centrer le Logo + recherche (main)=== */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer, footer .pays {
+  background: #0e0d0d;                              /* fond gris foncé (Google-like) */
+  color: #bfbfbf;                                /* texte gris clair (Google) */
+  padding: 12px 16px;                             /* respiration autour */
+}
+
+a {
+  color: #bfbfbf;                                /* texte gris clair (Google) */
+  text-decoration: none;                         /* retire le soulignement */
+}
+
+.center {
+  text-align: center;                       /* centre le texte */
+}
+
+.gauche {
+  text-align: left;                       /* centre le texte */
+}
+
+.droite {
+  text-align: right;                       /* centre le texte */
+}
+
+footer .country{
+  border-bottom: 1px solid #fff;  /* le trait */
+  padding-bottom: 8px;            /* espace avant le trait */
+  margin-bottom: 8px;             /* espace après le trait */
+}
+.buttons {
+    background-color: #303134;
+    margin-top: 10px;
+    color: #e8eaed;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+#q {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.loupe-ico {
+    margin: 10px;
+    width: 14px;
+    height: 14px;
+}
+
+.search-bar {
+    display: flex;
+    background-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-radius: 9999px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 500px;
+    align-items: center}
+
+.buttons:hover,
+.buttons:focus-visible {
+background-size: 100% 100%;    /* le dégradé couvre tout le bouton */
+ background: rgba(145, 63, 192, 0.473);    /* focus clavier bien visible */
+  outline-offset: 2px;
+}
