@@ -1,81 +1,81 @@
-# Page d’accueil Google — Clone local (THP02/Google)
+# Google Homepage — Local Clone (THP02/Google)
 
-Une reproduction simple et soignée de la page d’accueil Google en HTML/CSS (thème sombre), pensée pour s’ouvrir localement sans dépendance externe. Le formulaire pointe vers la recherche Google réelle.
+A simple, tidy clone of the Google homepage in HTML/CSS (dark theme), designed to open locally with no external dependencies. The form submits to the real Google Search.
 
-## Aperçu
+## Overview
 
-- Logo local (`logo.svg`), icône de loupe (`loupe.png`).
-- Barre de recherche avec libellé accessible (label masqué) et focus visibles.
-- En-tête et pied de page structurés en `<nav>` pour une sémantique propre.
-- Responsive de base via `meta viewport` et mise en page flexible.
+- Local logo (`logo.svg`) and magnifying glass icon (`loupe.png`).
+- Search bar with accessible label (visually hidden) and clear focus styles.
+- Header and footer structured with `<nav>` for clean semantics.
+- Basic responsiveness via `meta viewport` and flexible layout.
 
-## Fonctionnalités
+## Features
 
-- Recherche: soumet les requêtes vers `https://www.google.com/search` avec la méthode GET (`name="q"`).
-- Boutons: "Recherche Google" et "J'ai de la chance" (comportement visuel; le second n’implémente pas la redirection spéciale, voir TODO).
-- Accessibilité: label masqué via `.sr-only`, contours de focus (`:focus-visible`), structure sémantique des zones.
-- Thème sombre: couleurs proches de `#202124` (Google thème sombre) pour le fond, texte contrasté, hover doux.
+- Search: submits queries to `https://www.google.com/search` via GET (`name="q"`).
+- Buttons: "Google Search" and "I'm Feeling Lucky" (visual behavior; the latter does not implement Google's special redirect — see TODO).
+- Accessibility: hidden label via `.sr-only`, focus outlines (`:focus-visible`), semantic landmarks.
+- Dark theme: background around `#202124` (Google dark theme), contrasted text, soft hover.
 
-## Arborescence
+## Structure
 
 ```
 THP02/Google/
-├─ index.html      # Page principale
-├─ style.css       # Styles (fondations, layout, composants)
-├─ logo.svg        # Logo Google vectoriel local
-├─ loupe.png       # Icône loupe (barre de recherche)
-└─ README.md       # Ce fichier
+├─ index.html      # Main page
+├─ style.css       # Styles (foundations, layout, components)
+├─ logo.svg        # Local Google logo (vector)
+├─ loupe.png       # Magnifying glass icon (search bar)
+└─ README.md       # This file
 ```
 
-## Utilisation
+## Usage
 
-- Option 1: ouvrir directement `index.html` dans votre navigateur.
-- Option 2 (recommandé): servir en local pour éviter certains blocages CORS/URL relatives.
-  - VS Code: extension Live Server → "Open with Live Server" depuis `index.html`.
-  - Node: `npx serve .` puis ouvrir l’URL indiquée.
+- Option 1: open `index.html` directly in your browser.
+- Option 2 (recommended): serve locally to avoid some CORS/relative URL edge cases.
+  - VS Code: Live Server extension → "Open with Live Server" from `index.html`.
+  - Node: `npx serve .` then open the provided URL.
 
-## Détails d’implémentation
+## Implementation Details
 
 - HTML
-  - Langue du document: `fr`.
-  - `<header>`: navigation principale (Gmail, Images, Applications, Profil – liens à compléter selon besoin).
-  - `<main>`: zone héro (logo) + formulaire de recherche (champ `name="q"`).
-  - `<footer>`: 3 blocs de liens (gauche/centre/droite). Quelques URLs sont des placeholders à remplacer si vous souhaitez une fidélité totale.
+  - Document language: `en`.
+  - `<header>`: primary navigation (Gmail, Images, Google apps, Profile — links can be customized).
+  - `<main>`: hero (logo) + search form (input `name="q"`).
+  - `<footer>`: three link groups (left/center/right). Some URLs are placeholders.
 
 - CSS
-  - Reset léger: `box-sizing: border-box`, layout vertical `header/main/footer`.
-  - Accessibilité: `.sr-only` pour label visuel masqué mais lu par lecteurs d’écran.
-  - Styles de focus: `:focus-visible` pour naviguer confortablement au clavier.
-  - Composants: centrage du logo, barre de recherche (icône loupe), boutons, navs du footer.
+  - Light reset: `box-sizing: border-box`, vertical layout `header/main/footer`.
+  - Accessibility: `.sr-only` for a visually hidden but screen reader–read label.
+  - Focus styles: `:focus-visible` for comfortable keyboard navigation.
+  - Components: centered logo, search bar (magnifier icon), buttons, footer navs.
 
-## Accessibilité (a11y)
+## Accessibility (a11y)
 
-- Label explicite pour le champ de recherche (masqué visuellement mais présent dans le DOM).
-- Focus visible sur les liens et éléments interactifs.
-- Structure sémantique: `header`, `main`, `footer`, `nav`, `form`, `label`.
+- Explicit label for the search input (visually hidden but in the DOM).
+- Visible focus on links and interactive elements.
+- Semantic structure: `header`, `main`, `footer`, `nav`, `form`, `label`.
 
-## Limites connues / TODO
+## Known Limitations / TODO
 
-- "J’ai de la chance": pour reproduire le vrai comportement Google, un traitement spécifique côté Google est nécessaire; localement, le bouton agit comme un submit standard.
-- Liens d’en-tête et de footer: certains sont actuellement des placeholders (`#`). Remplacez par les URLs officielles si souhaité.
-- Thème clair: le projet est en thème sombre. Un toggle sombre/clair peut être ajouté.
-- Icônes supplémentaires: l’icône d’"Applications" et l’avatar sont simplifiés; on peut intégrer un SVG inline plus fidèle.
+- "I'm Feeling Lucky": reproducing the real Google behavior requires Google's server-side handling; locally, the button acts as a standard submit.
+- Header/footer links: some are placeholders (`#`). Replace with official URLs if desired.
+- Light theme: this project uses a dark theme. A dark/light toggle can be added.
+- Extra icons: the "Google apps" icon and avatar are simplified; you can inline a more faithful SVG if needed.
 
-## Technologies
+## Tech
 
-- HTML5 sémantique
+- Semantic HTML5
 - CSS3 (flexbox, media queries, focus-visible)
 
-## Personnalisation rapide
+## Quick Customization
 
-- Modifier les couleurs dans `style.css` (variables possibles si vous souhaitez factoriser).
-- Adapter les liens dans `index.html` (header/footer) vers les services Google réels.
-- Remplacer `logo.svg`/`loupe.png` par vos propres assets si besoin.
+- Tweak colors in `style.css` (consider CSS variables if you want to factor settings).
+- Update links in `index.html` (header/footer) to point to real Google services.
+- Swap `logo.svg`/`loupe.png` with your own assets if needed.
 
-## Crédits
+## Credits
 
-- Logo et marque Google appartiennent à Google LLC. Projet réalisé à des fins pédagogiques.
+- Google logo and brand belong to Google LLC. This project is for educational purposes.
 
 ---
 
-Besoin d’un réglage pixel-perfect (espacements/typographies identiques à google.com), d’un thème clair, ou d’ouvrir tous les liens dans de nouveaux onglets (`target="_blank"`) ? Ouvrez une issue/PR ou demandez-moi d’ajuster.
+Need pixel-perfect spacing/typography to match google.com, a light theme, or to open all links in new tabs (`target="_blank"`)? Open an issue/PR or ask for adjustments.
